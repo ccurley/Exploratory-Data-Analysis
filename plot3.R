@@ -8,21 +8,8 @@
 
 plot3 <- function(){
         
-        # see plot1.R or readme.md for code annotation.
-        dateStr = "31/1/2007;23:59:00"
-        daysNum = 2880 
-        fileName <- "./household_power_consumption.txt"
-        
-        HPCData <- read.table(fileName, 
-                              sep =";",
-                              header = FALSE,
-                              stringsAsFactors = FALSE,
-                              dec = ".",
-                              skip=grep(dateStr, readLines(fileName)),
-                              nrows=daysNum)
-        
-        HPCColNames <- read.table("./household_power_consumption.txt", sep =";", header=TRUE,nrows=1)
-        names(HPCData) <- names(HPCColNames)
+        # Data file is the output of getHPCData() sourced in plot1.R
+        HPCData <- read.table("./HPCData.csv", header = TRUE, sep=";", stringsAsFactors = FALSE)
         
         # See plot2.R or readme.md for code annotation on the BLOODY TIME AND DATE syntax
         dateTime <- strptime(

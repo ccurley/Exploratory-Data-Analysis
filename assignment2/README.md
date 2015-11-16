@@ -1,29 +1,20 @@
-# Exploratory-Data-Analysis
+# Exploratory-Data-Analysis Assingment 2
 Repo for assignments in the Exploratory Data Analysis class offered through Coursera.
 
 I'm rubbish with this sort of thing, so beware of using anything you find in this repository. The answers are freqently incorrect.
 
-Assignment 1, Due 8 November 2015
----------------------------------
-
-Given that I made a pig's ear out of the class project in Getting and Cleaning Data, assignment 1 for Exploratory Data Analysis wasn't especially difficult.
-
-There are four scripts -- plot1.R, plot2.R, plot3.R and plot4.R -- and each one creates an image file -- plot1.png, plot2.png, plot3.png and plot4.png, respectively.
-
-plot1.R also contains the getHPCData() function that will download and unzip the data sample Household Power Consumption data set, then it will write only the subsetted data to a table. plot#() reads this subsetted table to perform the plots. 
-callHPCData() features two arguments. dateStr takes a sequence that would appear from the start of row containing unparsed values for date and time separated by a ";" -- the default value is "31/1/2007;23:59:00". This arg is used to set the skip rows arg in the read.table function call.
-
-daysNum takes a numeric input for the number of days worth of data will be subsetted. Call getHPCData() without args to get the data set used in this assignment. It is used for the nrows argument in the read.table function call.
-
-The other mildly tricky part was the data and time in two separate columns. Formatting with as.Date() on the read.table worked with Date, but I couldn't get it to format Time properly. I also spent too much time using lubridate's parse_date_time(), again with Date working out as desired and Time ending up a bit of mess. Eventually, I hit on the stackoverflow post on using paste to unite the time and date formatted to a POSIX vectory, which I used for the plots in
-plot2(), plot3(), and plot().
-
-When I pulled the same PNGs to Gimp, the canvass size was 504 by 504, so that's what I went with when defining the PNG
-dimensions.
-
-
-
 Assignment 2, Due 21 Novermber 2015
 -----------------------------------
-TBD
+There are six scripts in this repository, where each one generates a png of plotted data answering assignment questions.
 
+Source and call functions corresponding to the file name (e.g. plot1.R sources plot1()). Call the functions without args.
+
+The functions assume that the data for peer assessment (https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip) has been downloaded and unzipped in the working directory. For examples on how to do this programmatically, please see the assignments in the Getting and Cleaning Data repo (esp. https://github.com/ccurley/getting_and_cleaning_data/blob/master/run_analysis.R).
+
+I've avoided using grepl to subset the SCC data set, because I find that regex can only ever be read and understood by the person who wrote the expression. All others have to decypher it like Egyptologists (i.e. "^Comb.*Coal"). I use filter statements for the exact SCC EI.Sector strings, since there are a few to account for.
+
+Rather than writing the plots to a list x and then calling print(x), I just wrapped the plot statements in print({}). I found it easier to build and debug the functions this way. I don't suppose I had to put the code in functions, but it seemed to be the way to make this portable -- that is, if I wanted to be able to comp different cities, I could have added an arg for "fips", and so on.
+
+There are lots of ways to subset the data and merge the data sets. I used the dplyr lib and merge functions to do the job -- since that makes for relatively clean code for others to read. 
+
+In plots 1 to 5, I focused on including some element of the lessons into the plots. On plot 1, I focused on readable x and y axis; on plot 2, I worked to include data lables, in plot 3, facets. In plots 4 and 5, working with colors in a stacked bar to convey visual data. In plot 6, the goal was to do the job as simply as possible using the lattice and trellis libraries, since I hadn't called lattice yet.

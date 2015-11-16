@@ -20,10 +20,3 @@ plot2(), plot3(), and plot().
 
 When I pulled the same PNGs to Gimp, the canvass size was 504 by 504, so that's what I went with when defining the PNG
 dimensions.
-
-
-
-Assignment 2, Due 21 Novermber 2015
------------------------------------
-TBD
-

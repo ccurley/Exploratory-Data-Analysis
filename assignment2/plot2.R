@@ -44,7 +44,8 @@ plot2 <- function() {
         # set the bar plot. The only exotic thing going on here is the explicity call for space to = 1,
         # which is just there to help set the reference for the x value in the text labels for the bar
         # values.
-        barplot(height=plotdata$Emissions, 
+        print({)
+        barplot(height=plotdata$Emissions,
                 names.arg=plotdata$year, 
                 xlab="Years - 1999 and 2008", 
                 ylab="Total PM2.5 Emissions",
@@ -58,6 +59,7 @@ plot2 <- function() {
         # Then, we do the same for y, with x adjusted to 3.5 given spacing 1.
         text(x = 1.5, y = ytext1999, labels = round(plotdata[1,2]), cex = 1, pos = 3, col = "white")
         text(x = 3.5, y = ytext2008, labels = round(plotdata[2,2]), cex = 1, pos = 3, col = "white")
+        )}
         
         # close the output device
         dev.off()

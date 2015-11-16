@@ -8,7 +8,7 @@
 # I went with the scatter plot over the bar plot, because I wanted to solve the problems
 # with the y-axis. I use the bar plot in plot2.
 #
-# y-axis formatting is a giant pain in the ass. When plotting the graph, the y-axis
+# y-axis formatting is a giant pain in the ***. When plotting the graph, the y-axis
 # displayed with values in scientific notation. This is not exatly up to Tufte's 
 # standards, so I have to format the y-axis by hand... and undertaking about as easy
 # as learning to speak Hungarian. Use stackoverflow for reference.
